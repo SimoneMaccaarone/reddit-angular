@@ -5,14 +5,27 @@
       <span>Axia Reddit</span>
       <span class="example-spacer"></span>
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <p>All</p>
         <mat-icon>menu</mat-icon>
       </button>
+      <mat-form-field>
+        <mat-label>Choose Argument</mat-label>
+        <mat-select (ngModelChange)="loadPosts()">
+          <mat-option value="all">All</mat-option>
+          <mat-option value="art">Art</mat-option>
+          <mat-option value="worldnews">News</mat-option>
+          <mat-option value="aww">Animals</mat-option>
+          <mat-option value="pokemon">Pokemon</mat-option>
 
-
+        </mat-select>
+      </mat-form-field>
     </mat-toolbar-row>
   </mat-toolbar>
-  <!-- --------------------------------------------------------- -->
 
+    <!-- --------------------------------------------------------- -->
+    <li *ngFor="let title of {{data}}">
+
+    </li>
 
 
 
