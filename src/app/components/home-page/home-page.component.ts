@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
+import { BaseModel } from 'src/app/models/base-model';
+import { coerceStringArray } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'app-home-page',
@@ -7,13 +9,13 @@ import { RedditService } from 'src/app/services/reddit-service/reddit.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  // redditArray?: BaseModel[]
-
+  redditArray?: BaseModel[]
 
   selectedArgument = 'all'
 
-  gesu:any;
-  figa:any;
+  gesu: any;
+  figa: any;
+  count: number = 0;
 
 
   constructor(private redditService: RedditService) {
@@ -24,7 +26,7 @@ export class HomePageComponent {
 
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: figa => figa.data.children,
+      next: figa => { this.figa =   (figa.data.children.data).json() },
       error: err => console.log('ERRORE ', err)
     })
   }
@@ -36,7 +38,12 @@ export class HomePageComponent {
     })
   }
 
-
-
+  // loadPosts() {
+  //   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
+  //     next: figa => { this.figa =  JSON.stringify(figa.data.children.data) },
+  //     error: err => console.log('ERRORE ', err)
+  //   })
+  // }
 
 }
+
