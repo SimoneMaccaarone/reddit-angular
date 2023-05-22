@@ -13,7 +13,7 @@ export class HomePageComponent {
   redditArray?: BaseModel[]
 
   constructor(public redditService: RedditService) {
-    RedditService.getPage().then(data => console.log('DATA', data))
+    RedditService.getPage().then(gesu => console.log('DATA', gesu.data))
   }
 
 

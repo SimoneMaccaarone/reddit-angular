@@ -8,19 +8,19 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 })
 
 export class RedditService {
-  static data?: any;
+  static data?: string;
 
   constructor(private http:HttpClient){}
 
   static BASE_URL = 'https://www.reddit.com/'
 
-  static getPage(data?:any) {
+  static getPage(data?:string) {
     if(data !== undefined){
     return fetch(this.BASE_URL + data + 'hot.json')
       .then(resp => console.log('--- Con DATA ---',resp.json()));
     }else{
       return fetch(this.BASE_URL + 'hot.json')
-      .then(resp => console.log('--- NULL ---',resp.json()));
+      .then(resp => console.log('--- NULL ---', resp.json()));
     }
   }
 
