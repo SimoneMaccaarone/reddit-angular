@@ -1,3 +1,4 @@
+import { coerceStringArray } from '@angular/cdk/coercion';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
@@ -7,17 +8,22 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 })
 
 export class RedditService {
-  static data: any;
+  static data?: any;
 
   constructor(private http:HttpClient){}
 
-  static BASE_URL = 'https://www.reddit.com/r/'
+  static BASE_URL = 'https://www.reddit.com/'
 
-  static getPage(data: string) {
+  static getPage(data?:any) {
+    if(data !== undefined){
     return fetch(this.BASE_URL + data + 'hot.json')
-      .then(resp => console.log(resp.json()));
+      .then(resp => console.log('--- Con DATA ---',resp.json()));
+    }else{
+      return fetch(this.BASE_URL + 'hot.json')
+      .then(resp => console.log('--- NULL ---',resp.json()));
+    }
   }
 
 }
 
-RedditService.getPage('Overwatch/')
+RedditService.getPage('r/Overwatch')

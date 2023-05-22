@@ -3,7 +3,6 @@ export interface BaseModel{
   img:string;
   author:string;
   selftext:string;
-  upVote: number;
-  downVote: number;
+  score: number;
 
 }
