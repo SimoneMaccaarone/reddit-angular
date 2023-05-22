@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseModel } from 'src/app/models/base-model';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
 
 @Component({
@@ -7,9 +8,14 @@ import { RedditService } from 'src/app/services/reddit-service/reddit.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-[x: string]: any;
+  [x: string]: any;
 
-    constructor( public redditService:RedditService ){
+  redditArray?: BaseModel[]
 
+  constructor(public redditService: RedditService) {
+    RedditService.getPage().then(data => console.log('DATA', data))
   }
+
+
+
 }

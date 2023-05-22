@@ -26,4 +26,6 @@ export class RedditService {
 
 }
 
-RedditService.getPage('r/Overwatch')
+RedditService.getPage()
+
+// RedditService.getPage('r/Overwatch')
