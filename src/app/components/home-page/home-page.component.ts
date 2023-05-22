@@ -9,12 +9,12 @@ import { RedditService } from 'src/app/services/reddit-service/reddit.service';
 })
 export class HomePageComponent {
   [x: string]: any;
-
-  redditArray?: BaseModel[]
+  // redditArray?: BaseModel[]
 
   constructor(public redditService: RedditService) {
-    RedditService.getPage().then(gesu => console.log('DATA', gesu))
+
   }
+
 
 
 
