@@ -12,17 +12,29 @@ export class HomePageComponent {
 
   selectedArgument = 'all'
 
+  gesu:any;
+  figa:any;
+
+
   constructor(private redditService: RedditService) {
-    this.loadPosts()
+    this.loadPosts();
+    this.dataLog();
   }
+
 
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: data => console.log('ALL CICCIo', data),
+      next: figa => figa.data.after,
       error: err => console.log('tua madre troia', err)
     })
   }
 
+  dataLog() {
+    this.redditService.getRedditPosts(this.selectedArgument).subscribe({
+      next: gesu => console.log('Data gesu', gesu.data.children),
+      error: err => console.log('tua madre troia', err)
+    })
+  }
 
 
 
