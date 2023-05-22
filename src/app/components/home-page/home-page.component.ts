@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { BaseModel } from 'src/app/models/base-model';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
+
+
 
 @Component({
   selector: 'app-home-page',
