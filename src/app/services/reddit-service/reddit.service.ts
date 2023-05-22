@@ -1,9 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RedditService {
+
+  constructor(private http:HttpClient){}
 
   static BASE_URL = 'https://www.reddit.com/r/'
 
