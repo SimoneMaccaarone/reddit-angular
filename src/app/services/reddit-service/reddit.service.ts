@@ -20,7 +20,8 @@ export class RedditService {
       .then(resp => console.log('--- Con DATA ---',resp.json()));
     }else{
       return fetch(this.BASE_URL + 'hot.json')
-      .then(resp => console.log('--- NULL ---', resp.json()));
+      .then(resp => console.log('--- NULL ---', resp.json()))
+      .then(gesu=> console.log(gesu.data));
     }
   }
 
