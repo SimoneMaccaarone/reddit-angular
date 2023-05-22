@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataManagerService } from './data-manager.service';
+import { RedditService } from './reddit.service';
 
-describe('DataManagerService', () => {
-  let service: DataManagerService;
+describe('RedditService', () => {
+  let service: RedditService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataManagerService);
+    service = TestBed.inject(RedditService);
   });
 
   it('should be created', () => {
