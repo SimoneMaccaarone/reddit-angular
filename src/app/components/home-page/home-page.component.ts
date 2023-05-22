@@ -24,14 +24,14 @@ export class HomePageComponent {
 
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: figa => figa.data.after,
-      error: err => console.log('tua madre troia', err)
+      next: figa => figa.data.children,
+      error: err => console.log('ERRORE ', err)
     })
   }
 
   dataLog() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: gesu => console.log('Data gesu', gesu.data.children),
+      next: gesu => console.log('All: 100migliori post', gesu.data.children),
       error: err => console.log('tua madre troia', err)
     })
   }
