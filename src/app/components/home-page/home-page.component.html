@@ -3,7 +3,36 @@
     <span>Axia Reddit</span>
     <span class="example-spacer"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-form-field>
+      <mat-label>Choose Argument</mat-label>
+      <mat-select [(ngModel)]="selectedArgument" (ngModelChange)="loadPosts()">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="art">Art</mat-option>
+        <mat-option value="worldnews">News</mat-option>
+        <mat-option value="aww">Animals</mat-option>
+        <mat-option value="pokemon">Pokemon</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </mat-toolbar-row>
+
+  <!-- --------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -19,7 +48,4 @@
       <button mat-menu-item value="manga">
         <span>Overwatch</span>
       </button>
-    </mat-menu>
-  </mat-toolbar-row>
-
-  <!-- --------------------------------------------------------- -->
+    </mat-menu> -->
