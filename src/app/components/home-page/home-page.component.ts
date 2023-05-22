@@ -11,11 +11,16 @@ export class HomePageComponent {
   [x: string]: any;
   // redditArray?: BaseModel[]
 
-  constructor(public redditService: RedditService) {
+  selectedArgument: string= 'all'
 
+  constructor(public redditService: RedditService) {
+    this.loadPosts()
   }
 
-
-
-
+  loadPosts(){
+    this.redditService.getRedditPosts(this.selectedArgument).subscribe({
+      next: data=> console.log('ALL CICCIo',data),
+      error: err=> console.log('tua madre troia',err)
+    })
+  }
 }

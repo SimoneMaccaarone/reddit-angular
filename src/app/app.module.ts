@@ -9,9 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import {MatButtonModule} from '@angular/material/button';
+  import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import {MatMenuModule} from '@angular/material/menu';
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    // HttpClientInMemoryWebApiModule,
+    HttpClientInMemoryWebApiModule,
     MatButtonModule,
     MatMenuModule
 
