@@ -22,4 +22,9 @@ export class HomePageComponent {
       error: err => console.log('tua madre troia', err)
     })
   }
+
+
+
+
+
 }
