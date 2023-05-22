@@ -13,7 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     MatMenuModule,
     MatSelectModule,
+    MatCardModule
 
 
 
