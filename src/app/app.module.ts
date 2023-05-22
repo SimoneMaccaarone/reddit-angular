@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     MatToolbarModule,
     MatIconModule,
     HttpClientInMemoryWebApiModule,
+    MatButtonModule
+
 
 
 
