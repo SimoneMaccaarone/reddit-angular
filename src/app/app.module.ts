@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 @NgModule({
   declarations: [
