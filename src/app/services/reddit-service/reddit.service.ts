@@ -7,6 +7,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 })
 
 export class RedditService {
+  static data: any;
 
   constructor(private http:HttpClient){}
 

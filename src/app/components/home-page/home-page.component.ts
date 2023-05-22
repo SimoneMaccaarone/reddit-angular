@@ -7,10 +7,9 @@ import { RedditService } from 'src/app/services/reddit-service/reddit.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+[x: string]: any;
 
     constructor( public redditService:RedditService ){
 
   }
-
 }
-

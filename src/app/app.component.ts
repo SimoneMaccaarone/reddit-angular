@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'reddit-angular';
   private url: string = 'https://www.reddit.com/r/Overwatch/hot.json';
+data: any;
 
   ngOnInit(): void {
     fetch(this.url)
