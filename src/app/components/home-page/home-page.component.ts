@@ -26,14 +26,17 @@ export class HomePageComponent {
 
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: figa => { this.figa =   (figa.data.children.data).json() },
+      next: figa => { this.figa = figa.data.children.data },
       error: err => console.log('ERRORE ', err)
     })
   }
 
   dataLog() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: gesu => console.log('All: 100migliori post', gesu.data.children),
+      next: gesu => {
+        for (let i = 0; i < gesu.data.children.lenght; i++)
+          console.log('All: 100migliori post', gesu.data.children[i].data.title)
+      },
       error: err => console.log('tua madre troia', err)
     })
   }
