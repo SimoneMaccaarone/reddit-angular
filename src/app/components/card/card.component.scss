@@ -1,12 +1,10 @@
 .card {
-  width: 300px;
   display: flex;
   flex-direction: column;
-  columns: 4;
-  padding: 10px;
-  margin: 15px;
+  margin: 20px;
   border-radius: 5px;
   justify-content: center;
+  width: 500px;
 }
 
 .header-image {
@@ -19,5 +17,33 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+}
 
+.mat-card-img{
+  width: max-content;
+}
+
+.author{
+  font-size: 13px;
+}
+
+
+mat-card-header{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.score-container{
+  margin: 10px;
+  display: flex;
+}
+
+.comment-container{
+  margin: 10px;
+  display: flex;
+}
+
+
+mat-icon{
+  margin: 3px;
 }
