@@ -29,19 +29,19 @@ export class HomePageComponent {
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument)
       .subscribe({
-        next: data => console.log('Sono dentro al componente',data),
+        next: data => data.map(post => console.log(post.title)),
         error: err => console.log('ERRORE ', err)
       })
 
   }
 
-  changeThemes(){
+  changeThemes() {
     document.body.classList.toggle('dark-mode');
     this.isLight = !this.isLight;
   }
 
 
-// dataLog() {
+  // dataLog() {
   //   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
   //     next: data => console.log(data),
   //     error: err => console.log(err)
@@ -50,17 +50,3 @@ export class HomePageComponent {
 
 }
 
-
-
-
-
-
-// dataLog() {
-//   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-//     next: gesu => {
-//       for (let i = 0; i < gesu.data.children.lenght; i++)
-//         console.log('All: 100migliori post', gesu.data.children[i].data.title)
-//     },
-//     error: err => console.log('tua madre troia', err)
-//   })
-// }

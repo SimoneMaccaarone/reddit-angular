@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
+import { Post } from 'src/app/models/post';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class RedditService {
 
   constructor(private http: HttpClient) { }
 
-  getRedditPosts(argument: string): Observable<any> {
+  getRedditPosts(argument: string): Observable<Post[]> {
 
     return this.http
       .get<any>('https://www.reddit.com/r/' + argument + '/hot.json?limit=100').pipe(
@@ -22,7 +23,7 @@ export class RedditService {
         map((data => data.children)), //children
         tap((data) => console.log('3° tap:', data)),
         map((children) => children.map((child: any) => child.data)), // children.data
-        tap((childrenData)=> console.log('4° tap',childrenData))
+        tap((childrenData) => console.log('4° tap', childrenData))
       )
   }
 
@@ -34,3 +35,4 @@ export class RedditService {
 
 }
 
+  
