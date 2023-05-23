@@ -14,10 +14,7 @@ export class HomePageComponent {
 
   selectedArgument = 'all'
 
-  data: any;
-  gesu: any;
-  posts: any;
-  count: number = 0;
+  posts: Post[] = [];
 
 
   constructor(private redditService: RedditService) {
@@ -29,7 +26,7 @@ export class HomePageComponent {
   loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument)
       .subscribe({
-        next: data => data.map(post => console.log(post.title)),
+        next: data => this.posts = data,
         error: err => console.log('ERRORE ', err)
       })
 
