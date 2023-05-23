@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
-import { BaseModel } from 'src/app/models/base-model';
+import { Post } from 'src/app/models/post';
 import { coerceStringArray } from '@angular/cdk/coercion';
 
 @Component({
@@ -9,44 +9,58 @@ import { coerceStringArray } from '@angular/cdk/coercion';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  redditArray?: BaseModel[]
+
+  isLight = true;
 
   selectedArgument = 'all'
 
+  data: any;
   gesu: any;
-  figa: any;
+  posts: any;
   count: number = 0;
 
 
   constructor(private redditService: RedditService) {
     this.loadPosts();
-    this.dataLog();
+    // this.dataLog();
   }
 
 
   loadPosts() {
-    this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: figa => { this.figa = figa.data.children.data },
-      error: err => console.log('ERRORE ', err)
-    })
+    this.redditService.getRedditPosts(this.selectedArgument)
+      .subscribe({
+        next: data => console.log('Sono dentro al componente',data),
+        error: err => console.log('ERRORE ', err)
+      })
+
   }
 
-  dataLog() {
-    this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next: gesu => {
-        for (let i = 0; i < gesu.data.children.lenght; i++)
-          console.log('All: 100migliori post', gesu.data.children[i].data.title)
-      },
-      error: err => console.log('tua madre troia', err)
-    })
+  changeThemes(){
+    document.body.classList.toggle('dark-mode');
+    this.isLight = !this.isLight;
   }
 
-  // loadPosts() {
+
+// dataLog() {
   //   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-  //     next: figa => { this.figa =  JSON.stringify(figa.data.children.data) },
-  //     error: err => console.log('ERRORE ', err)
+  //     next: data => console.log(data),
+  //     error: err => console.log(err)
   //   })
   // }
 
 }
 
+
+
+
+
+
+// dataLog() {
+//   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
+//     next: gesu => {
+//       for (let i = 0; i < gesu.data.children.lenght; i++)
+//         console.log('All: 100migliori post', gesu.data.children[i].data.title)
+//     },
+//     error: err => console.log('tua madre troia', err)
+//   })
+// }

@@ -1,25 +1,28 @@
-import { coerceStringArray } from '@angular/cdk/coercion';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class RedditService {
+  isLight!: boolean;
   // static data?: string;
   // static BASE_URL = 'https://www.reddit.com/r/'
 
-  constructor(private http:HttpClient){}
+  constructor(private http: HttpClient) { }
 
-  getRedditPosts(argument:string){
-    return this.http.get<any>('https://www.reddit.com/r/'+ argument+'/hot.json?limit=100')
+  getRedditPosts(argument: string): Observable<any> {
+
+    return this.http
+      .get<any>('https://www.reddit.com/r/' + argument + '/hot.json?limit=100').pipe(
+        tap(obj => console.log('Sono dentro il TAP:', obj)),
+        map((obj => obj.data)),
+        tap((data) => console.log('Sono dentro il secondo tap', data))
+      )
   }
 }
-
-
-
 
 
 //   static getPage(data?:string) {
