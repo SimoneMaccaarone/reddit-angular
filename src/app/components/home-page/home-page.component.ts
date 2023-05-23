@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
 import { Post } from 'src/app/models/post';
-import { coerceStringArray } from '@angular/cdk/coercion';
+
 
 @Component({
   selector: 'app-home-page',

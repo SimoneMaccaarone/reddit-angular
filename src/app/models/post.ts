@@ -5,5 +5,5 @@ export interface Post{
   score: number;
   url:string;
   permalink:string;
-  thumbnail: string;
+  thumbnail?: string;
 }
