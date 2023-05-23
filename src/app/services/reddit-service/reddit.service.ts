@@ -8,8 +8,7 @@ import { Observable, map, tap } from 'rxjs';
 
 export class RedditService {
   isLight!: boolean;
-  // static data?: string;
-  // static BASE_URL = 'https://www.reddit.com/r/'
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,23 +16,21 @@ export class RedditService {
 
     return this.http
       .get<any>('https://www.reddit.com/r/' + argument + '/hot.json?limit=100').pipe(
-        tap(obj => console.log('Sono dentro il TAP:', obj)),
-        map((obj => obj.data)),
-        tap((data) => console.log('Sono dentro il secondo tap', data))
+        tap((obj) => console.log('1° tap:', obj)),
+        map((obj => obj.data)), //data
+        tap((data) => console.log('2° tap:', data)),
+        map((data => data.children)), //children
+        tap((data) => console.log('3° tap:', data)),
+        map((children) => children.map((child: any) => child.data)), // children.data
+        tap((childrenData)=> console.log('4° tap',childrenData))
       )
   }
+
+
+
+
+
+
+
 }
 
-
-//   static getPage(data?:string) {
-//     if(data !== undefined){
-//     return fetch(this.BASE_URL + data + 'hot.json?limit=100')
-//       .then(resp => console.log('--- Con DATA ---',resp.json()));
-//     }else{
-//       return fetch(this.BASE_URL + 'all/hot.json?limit=100')
-//       .then(resp => console.log('--- NULL ---', resp.json()))
-//     }
-//   }
-// }
-
-// RedditService.getPage('r/Overwatch')
