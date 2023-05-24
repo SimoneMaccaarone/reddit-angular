@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
 
-    <span class="title-toolbar" >Axia Reddit</span>
+    <span class="title-toolbar">Angular Reddit</span>
 
     <span class="spacer"></span>
 
@@ -11,12 +11,14 @@
 
     <mat-form-field>
       <mat-label class="select-menu">Choose Argument</mat-label>
-      <mat-select (ngModelChange)="loadPosts()">
-        <mat-option value="all">All</mat-option>
-        <mat-option value="art">Art</mat-option>
-        <mat-option value="worldnews">News</mat-option>
-        <mat-option value="aww">Animals</mat-option>
+      <mat-select [(ngModel)]="selectedArgument" (ngModelChange)="loadPosts()">
+        <mat-option value="all">Tutti</mat-option>
+        <mat-option value="Overwatch">Overwatch</mat-option>
+        <mat-option value="spacex">SpaceX</mat-option>
+        <mat-option value="minecraft">Minecraft</mat-option>
         <mat-option value="pokemon">Pokemon</mat-option>
+        <mat-option value="pics">Reddit Pics</mat-option>
+
       </mat-select>
     </mat-form-field>
 
