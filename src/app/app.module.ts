@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -18,6 +19,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -39,10 +41,9 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatSelectModule,
     MatCardModule,
-    FormsModule
-
-
-
+    FormsModule,
+    MatGridListModule,
+  
 
   ],
   providers: [],

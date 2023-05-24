@@ -1,0 +1,130 @@
+/* For use in src/lib/core/theming/_palette.scss */
+$primary: (
+  50 : #ffebe0,
+  100 : #ffceb3,
+  200 : #ffad80,
+  300 : #ff8c4d,
+  400 : #ff7426,
+  500 : #ff5b00,
+  600 : #ff5300,
+  700 : #ff4900,
+  800 : #ff4000,
+  900 : #ff2f00,
+  A100 : #ffffff,
+  A200 : #fff4f2,
+  A400 : #ffc7bf,
+  A700 : #ffb1a6,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$secondary: (
+  50 : #e0f4ff,
+  100 : #b3e4ff,
+  200 : #80d3ff,
+  300 : #4dc1ff,
+  400 : #26b3ff,
+  500 : #00a6ff,
+  600 : #009eff,
+  700 : #0095ff,
+  800 : #008bff,
+  900 : #007bff,
+  A100 : #ffffff,
+  A200 : #f2f8ff,
+  A400 : #bfdaff,
+  A700 : #a6ccff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$warn: (
+  50 : #f4ffe0,
+  100 : #e4ffb3,
+  200 : #d3ff80,
+  300 : #c1ff4d,
+  400 : #b3ff26,
+  500 : #a6ff00,
+  600 : #9eff00,
+  700 : #95ff00,
+  800 : #8bff00,
+  900 : #7bff00,
+  A100 : #ffffff,
+  A200 : #f8fff2,
+  A400 : #daffbf,
+  A700 : #ccffa6,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$my-primary: mat.define-palette($primary, 500);
+$my-secondary: mat.define-palette($secondary, 200, 400, 500);
+$my-warn: mat.define-palette($warn, 500);
+
+
+$my-light-theme: mat.define-light-theme((color: (primary: $my-primary,
+        secondary: $my-secondary,
+        warn: $my-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+
+$my-dark-theme: mat.define-light-theme((color: (primary: $my-secondary,
+        secondary: $my-primary ,
+        warn: $my-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+
+@include mat.all-component-themes($my-light-theme);
+
+.dark-mode {
+  @include mat.all-component-colors($my-dark-theme);
+}

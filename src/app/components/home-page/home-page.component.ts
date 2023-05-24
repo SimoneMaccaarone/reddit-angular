@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
 import { Post } from 'src/app/models/post';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,6 @@ export class HomePageComponent {
 
   constructor(private redditService: RedditService) {
     this.loadPosts();
-    // this.dataLog();
   }
 
 
@@ -37,13 +37,6 @@ export class HomePageComponent {
     this.isLight = !this.isLight;
   }
 
-
-  // dataLog() {
-  //   this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-  //     next: data => console.log(data),
-  //     error: err => console.log(err)
-  //   })
-  // }
 
 }
 
